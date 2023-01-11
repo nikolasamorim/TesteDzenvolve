@@ -77,19 +77,21 @@ class clientes
                     $this->profissao
                 ));
                 if ($sql->rowCount() > 0) {
-
+                    //mensagem de sucesso após validação do insert
                     $_SESSION['title'] = "SUCESSO!!";
                     $_SESSION['message'] = "Cadastro concluído com sucesso!";
                     $_SESSION['msg_type'] = "sucess";
 
                     header('location: ../');
                 } else {
+                    //mensagem de erro após validação do insert
                     $_SESSION['title'] = "ERRO!!";
-                $_SESSION['message'] = "Erro ao realizar o cadastro. Não foi possível realizar o cadastro!";
-                $_SESSION['msg_type'] = "erro";
+                    $_SESSION['message'] = "Erro ao realizar o cadastro. Não foi possível realizar o cadastro!";
+                    $_SESSION['msg_type'] = "erro";
 
-                header('location: ../');
+                    header('location: ../');
                 }
+                //mensagem de erro após validação das variavéis recebidas
             } else {
                 $_SESSION['title'] = "ERRO!!";
                 $_SESSION['message'] = "Erro ao realizar o cadastro. Preencha todos os dados corretamente!";
@@ -100,7 +102,7 @@ class clientes
             //mensagem de erro da função inserir
         } catch (PDOException $msg) {
             $_SESSION['title'] = "ERRO!!";
-            $_SESSION['message'] = "Não foi possível realizar o cadastro dos itens!". $msg->getMessage();
+            $_SESSION['message'] = "Não foi possível realizar o cadastro dos itens!" . $msg->getMessage();
             $_SESSION['msg_type'] = "erro";
 
             header('location: ../');
@@ -210,8 +212,7 @@ class clientes
                     $_SESSION['msg_type'] = "sucess";
 
                     header('location: ../');
-                }
-                else {
+                } else {
                     echo "deu ruim";
                 }
             } else {
